@@ -1,0 +1,272 @@
+.App {
+  max-width: min(60vw, 540px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 42px;
+}
+
+.App header .title {
+  font-weight: 700;
+  color: var(--grey);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.App main .password-display-wrapper,
+.App main .password-controls-wrapper {
+  box-sizing: border-box;
+  background-color: var(--middle-grey);
+  width: 100%;
+  padding: 19px 32px;
+}
+
+.App main .password-display-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 30px;
+}
+
+.App main .password-display-wrapper input {
+  color: var(--light-grey);
+  background-color: inherit;
+  border: none;
+  outline: none;
+  height: 30px;
+  font-size: 25px;
+  font-weight: 700;
+  width: 90%;
+}
+
+
+
+.App main .password-display-wrapper input::placeholder {
+  color: inherit;
+  opacity: 0.4;
+}
+
+.App main .password-display-wrapper .copy-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App main .password-display-wrapper .copy-icon {
+  color: var(--neon-green);
+  cursor: pointer;
+}
+
+.App main .password-display-wrapper .copy-popover {
+  position: absolute;
+  top: 100%;
+  margin-top: 7px;
+  min-width: fit-content;
+  padding: 12px;
+  background-color: var(--dark-grey);
+  color: var(--neon-green);
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out;
+  font-weight: 700;
+}
+
+.App main .password-display-wrapper .copy-popover.hide {
+  transform: scale(0);
+}
+
+.App main .password-display-wrapper .copy-popover.show {
+  transform: scale(1);
+}
+
+.App main .password-controls-wrapper .character-length {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.App main .password-controls-wrapper .character-length span:nth-of-type(1) {
+  color: var(--light-grey);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.App main .password-controls-wrapper .character-length span:nth-of-type(2) {
+  color: var(--neon-green);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.App main .password-controls-wrapper .slider {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.App main .password-controls-wrapper .slider input {
+  width: 100%;
+}
+
+.App main .password-controls-wrapper .password-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  color: var(--light-grey);
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 18px;
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
+}
+
+.App main .password-controls-wrapper .password-controls.disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.App main .password-controls-wrapper .password-controls input[type='checkbox'] {
+  appearance: none;
+  cursor: pointer;
+}
+
+.App main .password-controls-wrapper .password-controls input[type='checkbox']::before {
+  display: inline-block;
+  content: '';
+  height: min(20px, 20px);
+  background: black;
+  width: min(20px, 20px);
+  margin-bottom: -5px;
+  border: 1px solid var(--light-grey);
+  transition: background 0.1s ease-in-out;
+}
+
+.App main .password-controls-wrapper .password-controls input[type='checkbox']:checked::before {
+  content: '✔';
+  font-size: 15px;
+  text-align: center;
+  font-weight: bolder;
+  background: var(--neon-green);
+}
+
+input[type='range'] {
+  appearance: none;
+  --webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  /* background: var(--dark-grey); */
+  outline: none;
+  border: none;
+  height: 15px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  background: var(--light-grey);
+  margin-top: -8px;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 9px 3px rgb(0 0 0 / 20%);
+  outline: none;
+  border: none;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  background: var(--dark-grey);
+  border: 1px solid var(--light-grey);
+}
+
+/* Stength styles */
+
+.App main .password-controls-wrapper .password-strength {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-grey);
+  margin: 20px 0;
+  padding: 19px 20px;
+  color: var(--grey);
+}
+
+.App main .password-controls-wrapper .password-strength .strength-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--light-grey);
+}
+
+.App main .password-controls-wrapper .password-strength .strength-indicator .indicator-charge {
+  height: 35px;
+  width: 12px;
+  border: 2.4px solid var(--light-grey);
+  transition: all 0.2s ease-in-out;
+}
+
+.App main .password-controls-wrapper .generate-btn {
+  background-color: var(--neon-green);
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in;
+  border: 2px solid var(--neon-green);
+}
+
+.App main .password-controls-wrapper .generate-btn:hover {
+  color: var(--neon-green);
+  background-color: inherit;
+}
+
+.App main .password-controls-wrapper .generate-btn:disabled {
+  background-color: var(--light-grey);
+  border: 2px solid var(--light-grey);
+  color: var(--grey);
+  pointer-events: none;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+  .App {
+    max-width: max(250px, 88vw);
+  }
+
+  .App main .password-controls-wrapper .password-controls {
+    font-size: max(3vw, 14px);
+  }
+
+  .App main .password-controls-wrapper .character-length span:nth-of-type(1) {
+    font-size: 16px;
+  }
+
+  .App main .password-controls-wrapper .character-length span:nth-of-type(2) {
+    font-size: 25px;
+  }
+
+  .App main .password-controls-wrapper .password-strength {
+    font-size: max(3vw, 12px);
+    padding: 19px 9px;
+    gap: 14px;
+  }
+
+
+  .App main .password-display-wrapper input {
+    font-size: max(6vw, 10px);
+  }
+}
